@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Krishna Janmashtami — ACI Computer Institute</title>
+  <link rel="stylesheet" href="rising.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar" role="banner" aria-label="ACI header">
+      <div class="brand">
+        <div class="aci-badge" aria-hidden="true">
+          <span>A</span><span>C</span><span>I</span>
+        </div>
+        <div class="titles">
+          <div class="main-title">ACI Computer Institute <br> Maker, Saran, Bihar</div>
+          <div class="sub-title">Proudly Celebrates Krishna Janmashtami</div>
+        </div>
+      </div>
+
+      <div class="credits" aria-hidden="true">
+        <div class="prince">Developed and Design by: <strong class="maker-name">Prince Singh</strong></div>
+        <button id="themeToggle" class="pill" title="Toggle Bhaagwa Theme">Toggle Bhaagwa</button>
+      </div>
+    </header>
+
+    <main class="stage" role="main">
+      <div class="hero">
+        <!-- large glowing headline -->
+        <h1 id="heroText" class="hero-text" aria-live="polite">✨ Happy Krishna Janmashtami ✨</h1>
+
+        <!-- animated code-drawn Krishna motifs (pure CSS + SVG shapes) -->
+        <div class="motifs" aria-hidden="true">
+          <div class="flute-atom" title="flute"></div>
+          <svg class="peacock" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <radialGradient id="g1" cx="30%" cy="30%">
+                <stop offset="0%" stop-color="#ffeaa7"/>
+                <stop offset="60%" stop-color="#ffd166"/>
+                <stop offset="100%" stop-color="#f08a5d"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="40" cy="50" rx="36" ry="14" fill="url(#g1)" opacity="0.95" />
+            <circle cx="40" cy="50" r="6" fill="#3a7ca5" />
+          </svg>
+        </div>
+
+        <!-- big spotlight for featured wish -->
+        <div id="spotlight" class="spotlight" aria-live="polite" aria-atomic="true">
+          <div class="spot-decor left" aria-hidden="true">🪶</div>
+          <div class="spot-content">
+            <div class="spot-name" id="spotName">ACI Family</div>
+            <div class="spot-wish" id="spotWish">Warm Janmashtami wishes to everyone — celebrate with love!</div>
+          </div>
+          <div class="spot-decor right" aria-hidden="true">🎵</div>
+        </div>
+
+        <div class="hero-tools">
+          <button id="blessBtn" class="pill">💬 Random Blessing</button>
+          <button id="cycleBtn" class="pill">Cycle Spotlight</button>
+          <button id="muteBtn" class="pill">🔔 Chime</button>
+        </div>
+      </div>
+
+      <!-- interactive panel -->
+      <section class="panel" aria-label="Wish submission">
+        <h2 class="panel-title">Share your wish — show it to everyone</h2>
+
+        <form id="wishForm" class="wish-form" autocomplete="off" novalidate>
+          <div class="row">
+            <label for="name" class="sr-only">Name</label>
+            <input id="name" name="name" placeholder="Your name (e.g., Prince Singh)" maxlength="40" required>
+          </div>
+
+          <div class="row">
+            <label for="wish" class="sr-only">Wish</label>
+            <textarea id="wish" name="wish" placeholder="Write your Janmashtami wish..." maxlength="200" required></textarea>
+          </div>
+
+          <div class="controls">
+            <button type="submit" class="btn primary">Share & Spotlight ✨</button>
+            <button type="button" id="addSilent" class="btn ghost">Add Quietly</button>
+            <!-- <button type="button" id="clearAll" class="btn danger">Clear All</button> -->
+          </div>
+
+          <div class="helpers">
+            <small id="hint">Tip: click any wish in the list to spotlight it. Type your name as <strong>Prince Singh</strong> for a special golden highlight!</small>
+          </div>
+        </form>
+
+        <aside class="wishes-area" aria-label="All wishes">
+          <h3>All Wishes</h3>
+          <div id="wishesList" class="wishes-list" role="list"></div>
+          <div class="wishes-controls">
+            <button id="exportBtn" class="btn mini">Export JSON</button>
+            <button id="importBtn" class="btn mini">Import JSON</button>
+            <input id="fileInput" type="file" accept="application/json" style="display:none">
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-lines">
+        <div class="line line-1">🎓 ACI Computer Institute</div>
+        <div class="line line-2">💻 ADCA | DCA | Tally | DFA | CCA | More...</div>
+        <div class="line line-3">📍 Maker, Chhapra Road (Bypass), Saran</div>
+        <div class="line line-4">9576737726 OR 8540858926</div>
+      </div>
+
+      <div class="footer-credit">
+        Designed & Developed with ❤️ by <strong class="maker-name">Prince Singh</strong>
+      </div>
+    </footer>
+
+    <!-- celebration canvas layers -->
+    <canvas id="particles"></canvas>
+    <canvas id="confetti"></canvas>
+
+    <!-- floating Instagram anchor (developer) -->
+    <a id="instaFloat" class="insta-float" href="https://instagram.com/priince_.singh" target="_blank" rel="noopener noreferrer" aria-label="Prince Singh on Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5a4 4 0 100 8 4 4 0 000-8zm4.8-3.6a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <!-- small accessibility / helper UI -->
+    <div class="ui-floating" aria-hidden="true">
+      <button id="cycleBtnDup" class="pill small">➡️</button>
+    </div>
+  </div>
+
+  <script src="rising.js"></script>
+</body>
+</html>
